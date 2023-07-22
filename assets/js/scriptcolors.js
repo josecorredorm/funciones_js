@@ -12,7 +12,6 @@ box4.addEventListener("click",()=>Fondo("yellow",box4));
 
 let key = document.getElementById("key");
 let ColorF= "white";
-let bandera = 0;
 document.addEventListener("keydown",DivChange);
 function DivChange(idevent){
     if (idevent.key === 'a' || idevent.key === 'A') {
@@ -23,7 +22,7 @@ function DivChange(idevent){
         else{
             ModText(idevent.key);
         }
-        }
+    }
     else if (idevent.key === 's' || idevent.key === 'S') {
         ColorF = "orange";
         if(!document.querySelector(".NewSpan")){
@@ -32,7 +31,7 @@ function DivChange(idevent){
         else{
             ModText(idevent.key);
         }
-        }
+       }
     else if (idevent.key === 'd' || idevent.key === 'D') {
         ColorF = "skyblue";
         if(!document.querySelector(".NewSpan")){
@@ -41,10 +40,9 @@ function DivChange(idevent){
         else{
             ModText(idevent.key);
         }
-        }
+    }
     else if (idevent.key == 'q' || idevent.key =='Q'){
-        if (bandera == 0){
-                bandera = 1;
+        if (!document.querySelector(".newDiv")){
                 CreateDiv("yellow");
                 if(!document.querySelector(".NewSpan")){
                     CreateText(idevent.key);
@@ -52,16 +50,15 @@ function DivChange(idevent){
                 else{
                     ModText(idevent.key);
                 }
-            }
+        }
         else{
                 let newDiv =document.querySelector(".newDiv");
                 Fondo("yellow",newDiv);
                 ModText(idevent.key);
-            }
         }
+    }
     else if (idevent.key == 'w' || idevent.key =='W'){
-        if (bandera == 0){
-                bandera = 1;
+        if (!document.querySelector(".newDiv")){                
                 CreateDiv("blue");
                 if(!document.querySelector(".NewSpan")){
                     CreateText(idevent.key);
@@ -77,7 +74,7 @@ function DivChange(idevent){
             }
         }
     else if (idevent.key == 'e' || idevent.key =='E'){
-        if (bandera == 0){
+        if (!document.querySelector(".newDiv")){
                 bandera = 1;
                 CreateDiv("brown");
                 if(!document.querySelector(".NewSpan")){
@@ -104,7 +101,6 @@ function DivChange(idevent){
     }
     key.style.backgroundColor=ColorF;
 }
-
 function CreateDiv(ColorDiv){
     const newElement = document.createElement("div");
     newElement.classList.add("newDiv");
